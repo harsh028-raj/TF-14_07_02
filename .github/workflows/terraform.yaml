@@ -1,15 +1,11 @@
-Create & Destroy
 
-
-
-name:TF-AWS Pipeline 
+name: Terraform Pipeline
 
 on:
   push:
     branches:
       - main
   workflow_dispatch:  # Enables manual Apply & Destroy triggers
-
 
 jobs:
   plan:
@@ -29,7 +25,7 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-		
+
       - name: Auto-format Terraform files
         run: terraform fmt -recursive
 
@@ -58,7 +54,6 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-
 
   destroy:
     name: Terraform Destroy (Manual Only)
